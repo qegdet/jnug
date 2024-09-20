@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Message</title>
+</head>
+<body>
+ <script>
+ // TODO: Add hello code
+function getMessage(name){
+    return `Hello, ${name}...`;
+}
+
+const message = getMessage('ornella');
+document.write(message);
+
+function message1(name1){
+   return `${name1}`;
+}
+
+ // TODO: Add setTimeout code
+ setTimeout(
+    ()=>{document.write('안녕하세요')},
+    3000
+ );
+const message_1 = message1('반갑습니다');
+ setTimeout(() => {
+    document.write(message_1);
+}, 6000);
+
+ </script>
+</body>
+</html>
