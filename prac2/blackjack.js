@@ -10,7 +10,7 @@ sum += cardThree;
 if (sum > 21) {
  console.log('You lost');
 } else if(sum === 21){
-    console.log('you win!');
+    console.log('black jack!');
     return 
 }else{
 console.log(`You have ${sum} points`);
