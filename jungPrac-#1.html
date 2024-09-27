@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Message</title>
+</head>
+<body>
+ <script>
+ // TODO: Add hello code
+function getMessage(name) {
+    return `Hello, ${name} ...`;
+}
+
+const message = getMessage('ornella');
+document.write(message);
+
+// message1 함수 이름을 대문자와 소문자 일치
+function message1(name1) {
+    return `${name1}`;
+}
+
+// 첫 번째 타임아웃: 3초 후에 '안녕하세요' 출력
+setTimeout(() => {
+    document.write('안녕하세요');
+}, 3000);
+
+// message1 함수 실행
+const message_1 = message1('반갑습니다');
+
+// 두 번째 타임아웃: 6초 후에 message_1 출력
+setTimeout(() => {
+    document.write(message_1); // 함수의 반환 값을 출력
+}, 6000);
+
+ </script>
+</body>
+</html>
