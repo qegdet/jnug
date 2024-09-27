@@ -1,5 +1,5 @@
 let cardOne = 7;
-let cardTwo = 5;
+let cardTwo = 3;
 let sum = cardOne + cardTwo;
 let carBanks = [4,7,6,4,7,3,2];
 let cardThree = 9;
@@ -30,7 +30,10 @@ if (bankSum > 21 || (sum <= 21 && sum > bankSum)) {
  console.log('You win');
 }else if(sum === bankSum){
     console.log("draw!");
-} 
+} else if(bankSum === 21){
+    console.log("banker blackjack!");
+    return
+}
 else {
  console.log(`Bank wins bankPoint is ${bankSum}`);
 }
