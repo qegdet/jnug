@@ -37,35 +37,78 @@ body {
    }
 
 
-
-
- #plant8 {
+ #plant1 {
     position:absolute;
-    bottom :-567%;
-    left : -110%;
+    
  }  
-#plant10{
+ #plant2 {
     position:absolute;
-    bottom : -500%;
-    left : -400%;
+   
+ }  
+ #plant3 {
+    position:absolute;
+    
+ }  
+ #plant4 {
+    position:absolute;
+   
+ }  
+ #plant5 {
+    position:absolute;
+    
+ }  
+ #plant6 {
+    position:absolute;
+   
+ }  
+ 
+#plant7{
+    position:absolute;
+   
 }
+#plant8 {
+    position:absolute;
+    
+ }  
+ #plant9 {
+    position:absolute;
+    
+ }  
+ #plant10 {
+    position:absolute;
+   
+ }  
+ #plant11 {
+    position:absolute;
+   
+ }  
+ #plant12 {
+    position:absolute;
+    
+ }  
+ #plant13 {
+    position:absolute;
+    
+ }  
 #plog{
     position:absolute;
-    bottom : -380%;
+    bottom : 380%;
     left: 300%;
 }
 #plant14{
     position:absolute;
-    bottom:-200%;
-    left: -160%;
+    
 }
 
    .plant {
-    position: relative;
+    position: absolute;
     max-width: 130%;
     max-height: 120%;
     z-index: 2;
    }
+  .plant.active{
+    z-index:10;
+  }
        
    .jar-walls {
     height: 80%;
