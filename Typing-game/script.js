@@ -11,21 +11,26 @@ const quotes = [
    let words = [];
    let wordIndex = 0;
    let startTime = Date.now();
+   let gameCompleted = false;
 
 //DOM 요소 가져오기    
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
+const rankingElement = document.getElementById('RankingWindow');
 
 document.getElementById('start').addEventListener('click',() => {
     const quoteIndex = Math.floor(Math.random() * quotes.length); // 무작위 인덱스 생성
     const quote = quotes[quoteIndex]; // 무작위 인덱스 값으로 인용문 선택
     words = quote.split(' '); // 공백 문자를 기준으로 words 배열에 저장
     wordIndex = 0; // 초기화
+    gameCompleted =false;
     typedValueElement.disabled = false;//텍스트 활성화 
     typedValueElement.addEventListener('input',handleTyping);//시작버튼 누른면 텍스트 함수 활성화 
-    const spanWords = words.map(function(word) { return `<span>${word} </span>`});
-   // span 태그로 감싼 후 배열에 저장
+    const spanWords = words.map((word, index) => {
+      return `<span class="fade-in" style="animation-delay: ${index * 0.2}s">${word} </span>`;
+  });
+
     quoteElement.innerHTML = spanWords.join(''); // 하나의 문자열로 결합 및 설정
     quoteElement.childNodes[0].className = 'highlight'; // 첫번째 단어 강조
     messageElement.innerText = ''; // 메시지 요소 초기화
@@ -39,13 +44,20 @@ function handleTyping(){
    typedValueElement .addEventListener('input', () => {
     const currentWord = words[wordIndex]; // 현재 타이핑할 단어를 currentWord 에 저장
     const typedValue = typedValueElement .value; // 입력한 값을 typedValue에 저장
+    
     if (typedValue === currentWord && wordIndex === words.length - 1) { // 마지막 단어까지 정확히 입력했는 지 체크
     const elapsedTime = new Date().getTime() - startTime ; // 타이핑에 소요된 시간 계산
-    const message = `CONGRATULATIONS! You finished in ${elapsedTime / 1000} seconds.` ; // 타이핑 완료 메시지
+    const seconds = (elapsedTime / 1000).toFixed(2);
+    const message = `CONGRATULATIONS! You finished in ${seconds} seconds.` ; // 타이핑 완료 메시지
     messageElement .innerText = message; //생성된 메시지 화면에 표시
     typedValueElement.disabled = true; //텍스트 창 비활성화 
     typedValueElement.removeEventListener('input',handleTyping); //이벤트핸들함수 비활성화 
     document.getElementById('start').disabled = false;
+    if(!gameCompleted){  
+    updateRanking(seconds);
+   displayRanking();
+   gameCompleted=true;
+    }
     } else if (typedValue .endsWith(' ') && typedValue .trim() === currentWord ) { // 입력된 값이 공백으로 끝났는지와 공백을 제거한 값이 현재 단어와 일치하는 지 확인
    
     typedValueElement .value = ''; // 입력 필드 초기화하여 다음 단어 입력 준비
@@ -62,4 +74,40 @@ function handleTyping(){
    })
    
 }
+function updateRanking(seconds){//순위업데이트 
+   let rankings = JSON.parse(localStorage.getItem('rankings'))||[];
 
+   
+   // 새로운 기록 추가 후 정렬
+   rankings.push(seconds);
+   rankings = rankings.sort((a, b) => a - b);
+
+   // 상위 6개 기록만 유지
+   if (rankings.length > 6) {
+       rankings = rankings.slice(0, 6);
+   }
+
+   localStorage.setItem('rankings',JSON.stringify(rankings));
+
+}
+function displayRanking() {
+   const rankings = JSON.parse(localStorage.getItem('rankings')) || [];
+   rankingElement.innerHTML = "<h3>Top Rankings</h3>";
+
+   // 순위 목록을 생성하여 RankingWindow에 표시
+   rankings.forEach((time, index) => {
+       const rankingItem = document.createElement('p');
+       rankingItem.innerText = `${index + 1}위: ${time} 초`;
+       rankingElement.appendChild(rankingItem);
+   });
+}
+document.getElementById('reset').addEventListener('click', resetRanking);
+
+function resetRanking() {
+    localStorage.removeItem('rankings'); // 순위 초기화
+    rankingElement.innerHTML = "<h3>Top Rankings</h3>"; // 화면 순위 초기화
+    alert('Rankings have been reset.');
+}
+
+// 페이지 로드 시 초기 순위 표시
+window.addEventListener('load', displayRanking);
