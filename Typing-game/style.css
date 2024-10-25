@@ -1,0 +1,32 @@
+.highlight {
+    background-color: yellow;
+   }
+   .error {
+    background-color: lightcoral;
+    border: red;
+}
+
+h1{
+    text-align: center;
+}
+
+.css{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+p{
+    text-align:center;
+}
+
+#message{
+    background-color: aqua;
+    border: 3px solid darkcyan;
+    width: 500px; /* 요소의 너비를 지정 */
+    text-align: center; /* 텍스트를 요소 안에서 가운데 정렬 */
+    margin: 0 auto; /* 요소 자체를 화면 가운데 정렬 */
+    padding: 10px; /* 텍스트가 border와 겹치지 않게 간격 추가 */
+   
+}
