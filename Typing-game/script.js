@@ -80,7 +80,7 @@ function updateRanking(seconds){//순위업데이트
    
    // 새로운 기록 추가 후 정렬
    rankings.push(seconds);
-   rankings = rankings.sort((a, b) => a - b);
+   rankings = rankings.sort((a, b) => a - b);//솔트정렬
 
    // 상위 6개 기록만 유지
    if (rankings.length > 6) {

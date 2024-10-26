@@ -6,27 +6,16 @@
     border: red;
 }
 
-/* CSS 애니메이션 설정 */
+/* CSS 애니메이션: 글자 애니메이션 첨부 */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
 }
 
 .fade-in {
     opacity: 0;
     animation: fadeIn 0.5s forwards; /* 0.5초 동안 페이드 인 효과 */
 }
-
-
-
-
-
-
-
-
-
-
-
 
 h1{
     text-align: center;
