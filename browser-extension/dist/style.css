@@ -1,0 +1,195 @@
+/* 기본 스타일 초기화 및 레이아웃 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+  color: #333;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 10px 0 10px;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.form-data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+label {
+  font-size: 15px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.region-name, .api-key {
+  width: 180px; 
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+  text-align: center;
+  background-color: #F6F6F6;
+}
+
+.region-name:focus, .api-key:focus {
+  border-color: #007bff;
+}
+
+.search-btn {
+  width: 20%; 
+  max-width: 100px;
+  padding: 10px;
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  width: 100%;
+  margin-top: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-container {
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.result-container p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.clear-btn {
+  width: 50%;
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.clear-btn:hover {
+  background-color: #e1e1e1;
+}
+
+.loading, .errors, .data {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 다크 모드 스타일 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  h1, h2 {
+    color: #e0e0e0;
+  }
+
+  label {
+    color: #e0e0e0;
+  }
+
+  input[type="text"] {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  
+  .search-btn {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .search-btn:hover {
+    background-color: #0056b3;
+  }
+
+  
+  .clear-btn {
+    background-color: #2029c8;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  .clear-btn:hover {
+    background-color: #4914b4;
+  }
+}
