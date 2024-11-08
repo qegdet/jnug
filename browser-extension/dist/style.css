@@ -16,8 +16,8 @@ body {
 }
 
 .container {
-  width: 100%;
-  max-width: 350px;
+  width: 350px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,18 +40,12 @@ h1 {
 h2 {
   font-size: 20px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #555;
 }
 
-.form-data {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 5px;
-}
+/* 폼 스타일 */
+
 
 .input-group {
   display: flex;
@@ -61,16 +55,22 @@ h2 {
 }
 
 label {
+  display: block;         /* 부모의 전체 너비를 차지 */
+  width: 100%;            /* 전체 너비 사용 */
   font-size: 15px;
   margin-bottom: 6px;
-  text-align: center;
+  text-align: center;     /* 텍스트 중앙 정렬 */
   font-weight: bold;
 }
 
+
+
 .region-name, .api-key {
-  width: 180px; 
-  padding: 8px;
+  width: 100%; /* 전체 너비로 설정 */
+  max-width: 250px; /* 최대 너비 제한 */
+  padding: 13px; /* 패딩 추가 */
   font-size: 14px;
+  margin-left:10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
@@ -83,10 +83,12 @@ label {
   border-color: #007bff;
 }
 
+/* Submit 버튼 스타일 */
 .search-btn {
-  width: 20%; 
-  max-width: 100px;
-  padding: 10px;
+  width: auto; /* 전체 너비로 설정 */
+  max-width: 10px 20px; /* 최대 너비 제한 */
+  padding: 12px;
+  margin-left:38%;
   font-size: 14px;
   color: white;
   background-color: #007bff;
@@ -100,22 +102,24 @@ label {
   background-color: #0056b3;
 }
 
+/* 결과 컨테이너 스타일 */
 .result {
   width: 100%;
   margin-top: 20px;
-  display: none;
   flex-direction: column;
   align-items: center;
+  text-align: center; /* 텍스트를 중앙 정렬 */
 }
 
 .result-container {
   width: 100%;
-  text-align: left;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
 .result-container p {
@@ -123,8 +127,18 @@ label {
   margin: 5px 0;
 }
 
+.region-result {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
 .clear-btn {
-  width: 50%;
+  display: block;                /* 버튼을 블록 요소로 설정 */
+  width: auto;                   /* 전체 너비로 설정 */
+  max-width: 10px 20px;              /* 최대 너비 제한 */
   padding: 10px;
   font-size: 14px;
   color: #333;
@@ -132,7 +146,7 @@ label {
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px;
+  margin: 15px auto 0 auto;      /* 상단 여백 추가 및 좌우 중앙 정렬 */
 }
 
 .clear-btn:hover {
@@ -166,13 +180,12 @@ label {
     color: #e0e0e0;
   }
 
-  input[type="text"] {
+  .region-name, .api-key {
     background-color: #333;
     color: #e0e0e0;
     border: 1px solid #555;
   }
 
-  
   .search-btn {
     background-color: #007bff;
     color: white;
@@ -182,14 +195,19 @@ label {
     background-color: #0056b3;
   }
 
-  
+  .result-container, .region-result {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
   .clear-btn {
-    background-color: #2029c8;
+    background-color: #333;
     color: #e0e0e0;
     border: 1px solid #555;
   }
 
   .clear-btn:hover {
-    background-color: #4914b4;
+    background-color: #444;
   }
 }
