@@ -12,36 +12,41 @@
   <div>
     <h1>Welcome to Your Personal Carbon Trigger!</h1>
   </div>
-  <!--form area-->
+
+  <!-- Form area -->
   <form class="form-data" autocomplete="on">
-    <div class="form-data" autocomplete="on">
+    <div>
       <h2>New? Add your Information</h2>
-      
-      <div class="input-group">
-        <label for="region" class="region-label">Region Name</label>
-        <input type="text" id="region" required class="region-name" />
-      </div>
-      
-      <div class="input-group">
-        <label for="api" class="api-label">Your API Key from tmrow</label>
-        <input type="text" id="api" required class="api-key" />
-      </div>
-      
-      <button class="search-btn">Submit</button>
     </div>
-     
- </form>
-  <!--result area-->
+    <div>
+      <label for="region0">Region Name</label>
+      <input type="text" id="region0" required class="region-name" />
+    </div>
+    <div>
+      <label for="region1">Region Name</label>
+      <input type="text" id="region1" required class="region-name" />
+    </div>
+    <div>
+      <label for="region2">Region Name</label>
+      <input type="text" id="region2" required class="region-name" />
+    </div>
+    <div>
+      <label for="api">Your API Key from tmrow</label>
+      <input type="text" id="api" required class="api-key" />
+    </div>
+    <button class="search-btn">Submit</button>
+  </form>
+
+  <!-- Result area -->
   <div class="result">
     <div class="loading">loading...</div>
     <div class="errors"></div>
-    <div class="data"></div>
-    <div class="result-container">
-        <p><strong>Region: </strong><span class="my-region"></span></p>
-        <p><strong>Carbon Usage: </strong><span class="carbon-usage"></span></p>
-        <p><strong>Fossil Fuel Percentage: </strong><span class="fossil-fuel"></span></p>
+    <div class="result-container"> <!-- 여러 결과가 표시될 컨테이너 -->
+      
     </div>
     <button class="clear-btn">Change region</button>
- </div>
+  </div>
+  
+  <script src="main.js"></script>
 </body>
 </html>
