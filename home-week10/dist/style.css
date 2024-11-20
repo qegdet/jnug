@@ -1,0 +1,213 @@
+/* 기본 스타일 초기화 및 레이아웃 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+  color: #333;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.container {
+  width: 350px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 10px 0 10px;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* 폼 스타일 */
+
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+label {
+  display: block;         /* 부모의 전체 너비를 차지 */
+  width: 100%;            /* 전체 너비 사용 */
+  font-size: 15px;
+  margin-bottom: 6px;
+  text-align: center;     /* 텍스트 중앙 정렬 */
+  font-weight: bold;
+}
+
+
+
+.region-name, .api-key {
+  width: 100%; /* 전체 너비로 설정 */
+  max-width: 250px; /* 최대 너비 제한 */
+  padding: 13px; /* 패딩 추가 */
+  font-size: 14px;
+  margin-left:10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+  text-align: center;
+  background-color: #F6F6F6;
+}
+
+.region-name:focus, .api-key:focus {
+  border-color: #007bff;
+}
+
+/* Submit 버튼 스타일 */
+.search-btn {
+  width: auto; /* 전체 너비로 설정 */
+  max-width: 10px 20px; /* 최대 너비 제한 */
+  padding: 12px;
+  margin-left:38%;
+  font-size: 14px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 결과 컨테이너 스타일 */
+.result {
+  width: 100%;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* 텍스트를 중앙 정렬 */
+}
+
+.result-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.result-container p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.region-result {
+  border: 1px solid #ccc;
+  padding: 15px;
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.clear-btn {
+  display: block;                /* 버튼을 블록 요소로 설정 */
+  width: auto;                   /* 전체 너비로 설정 */
+  max-width: 10px 20px;              /* 최대 너비 제한 */
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 15px auto 0 auto;      /* 상단 여백 추가 및 좌우 중앙 정렬 */
+}
+
+.clear-btn:hover {
+  background-color: #e1e1e1;
+}
+
+.loading, .errors, .data {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 다크 모드 스타일 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  .container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  h1, h2 {
+    color: #e0e0e0;
+  }
+
+  label {
+    color: #e0e0e0;
+  }
+
+  .region-name, .api-key {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  .search-btn {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .search-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .result-container, .region-result {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  .clear-btn {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  .clear-btn:hover {
+    background-color: #444;
+  }
+}
